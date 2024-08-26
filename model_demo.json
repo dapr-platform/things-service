@@ -1,0 +1,400 @@
+{
+  "schema": "https://iotx-tsl.oss-ap-southeast-1.aliyuncs.com/schema.json",
+  "profile": {
+    "version": "1.0",
+    "productKey": "a3hCQLZsDSl"
+  },
+  "properties": [
+    {
+      "identifier": "LockState",
+      "name": "门锁状态",
+      "accessMode": "r",
+      "required": true,
+      "dataType": {
+        "type": "enum",
+        "specs": {
+          "0": "关闭",
+          "1": "打开"
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "identifier": "post",
+      "name": "post",
+      "type": "info",
+      "required": true,
+      "desc": "属性上报",
+      "method": "thing.event.property.post",
+      "outputData": [
+        {
+          "identifier": "LockState",
+          "name": "门锁状态",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "0": "关闭",
+              "1": "打开"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "Error",
+      "name": "故障上报",
+      "type": "info",
+      "required": true,
+      "method": "thing.event.Error.post",
+      "outputData": [
+        {
+          "identifier": "ErrorCode",
+          "name": "故障代码",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "0": "正常"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "KeyAddedNotification",
+      "name": "添加钥匙通知",
+      "type": "info",
+      "required": true,
+      "method": "thing.event.KeyAddedNotification.post",
+      "outputData": [
+        {
+          "identifier": "KeyID",
+          "name": "钥匙ID",
+          "dataType": {
+            "type": "text",
+            "specs": {
+              "length": "10"
+            }
+          }
+        },
+        {
+          "identifier": "LockType",
+          "name": "开锁方式",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "1": "指纹",
+              "2": "密码",
+              "3": "卡",
+              "4": "机械钥匙"
+            }
+          }
+        },
+        {
+          "identifier": "UserLimit",
+          "name": "用户权限",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "1": "普通用户",
+              "2": "管理员",
+              "3": "劫持用户"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "KeyDeletedNotification",
+      "name": "删除钥匙通知",
+      "type": "info",
+      "required": true,
+      "method": "thing.event.KeyDeletedNotification.post",
+      "outputData": [
+        {
+          "identifier": "KeyID",
+          "name": "钥匙ID",
+          "dataType": {
+            "type": "text",
+            "specs": {
+              "length": "10"
+            }
+          }
+        },
+        {
+          "identifier": "LockType",
+          "name": "开锁方式",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "1": "指纹",
+              "2": "密码",
+              "3": "卡",
+              "4": "机械钥匙"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "KeyInformationNotification",
+      "name": "钥匙信息上报",
+      "type": "info",
+      "required": true,
+      "method": "thing.event.KeyInformationNotification.post",
+      "outputData": [
+        {
+          "identifier": "KeyID",
+          "name": "钥匙ID",
+          "dataType": {
+            "type": "text",
+            "specs": {
+              "length": "10"
+            }
+          }
+        },
+        {
+          "identifier": "LockType",
+          "name": "开锁方式",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "1": "指纹",
+              "2": "密码",
+              "3": "卡",
+              "4": "机械钥匙"
+            }
+          }
+        },
+        {
+          "identifier": "UserLimit",
+          "name": "用户权限",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "1": "普通用户",
+              "2": "管理员",
+              "3": "劫持用户"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "DoorOpenNotification",
+      "name": "开门通知",
+      "type": "info",
+      "required": true,
+      "method": "thing.event.DoorOpenNotification.post",
+      "outputData": [
+        {
+          "identifier": "KeyID",
+          "name": "钥匙ID",
+          "dataType": {
+            "type": "text",
+            "specs": {
+              "length": "10"
+            }
+          }
+        },
+        {
+          "identifier": "LockType",
+          "name": "开锁方式",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "1": "指纹",
+              "2": "密码",
+              "3": "卡",
+              "4": "机械钥匙"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "HijackingAlarm",
+      "name": "劫持报警",
+      "type": "info",
+      "required": true,
+      "method": "thing.event.HijackingAlarm.post",
+      "outputData": [
+        {
+          "identifier": "KeyID",
+          "name": "钥匙ID",
+          "dataType": {
+            "type": "text",
+            "specs": {
+              "length": "10"
+            }
+          }
+        },
+        {
+          "identifier": "LockType",
+          "name": "开锁方式",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "1": "指纹",
+              "2": "密码",
+              "3": "卡",
+              "4": "机械钥匙"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "TamperAlarm",
+      "name": "防撬报警",
+      "type": "info",
+      "required": true,
+      "method": "thing.event.TamperAlarm.post",
+      "outputData": []
+    },
+    {
+      "identifier": "LowElectricityAlarm",
+      "name": "低电量报警",
+      "type": "info",
+      "required": true,
+      "method": "thing.event.LowElectricityAlarm.post",
+      "outputData": []
+    },
+    {
+      "identifier": "DoorUnlockedAlarm",
+      "name": "门未锁好报警",
+      "type": "info",
+      "required": true,
+      "method": "thing.event.DoorUnlockedAlarm.post",
+      "outputData": []
+    }
+  ],
+  "services": [
+    {
+      "identifier": "set",
+      "name": "set",
+      "required": true,
+      "callType": "async",
+      "desc": "属性设置",
+      "method": "thing.service.property.set",
+      "inputData": [],
+      "outputData": []
+    },
+    {
+      "identifier": "get",
+      "name": "get",
+      "required": true,
+      "callType": "async",
+      "desc": "属性获取",
+      "method": "thing.service.property.get",
+      "inputData": [
+        "LockState"
+      ],
+      "outputData": [
+        {
+          "identifier": "LockState",
+          "name": "门锁状态",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "0": "关闭",
+              "1": "打开"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "AddKey",
+      "name": "添加钥匙",
+      "required": true,
+      "callType": "async",
+      "method": "thing.service.AddKey",
+      "inputData": [
+        {
+          "identifier": "LockType",
+          "name": "开锁方式",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "1": "指纹",
+              "2": "密码",
+              "3": "卡",
+              "4": "机械钥匙"
+            }
+          }
+        },
+        {
+          "identifier": "UserLimit",
+          "name": "用户权限",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "1": "普通用户",
+              "2": "管理员",
+              "3": "劫持用户"
+            }
+          }
+        }
+      ],
+      "outputData": []
+    },
+    {
+      "identifier": "DeleteKey",
+      "name": "删除钥匙",
+      "required": true,
+      "callType": "async",
+      "method": "thing.service.DeleteKey",
+      "inputData": [
+        {
+          "identifier": "KeyID",
+          "name": "钥匙ID",
+          "dataType": {
+            "type": "text",
+            "specs": {
+              "length": "10"
+            }
+          }
+        },
+        {
+          "identifier": "LockType",
+          "name": "开锁方式",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "1": "指纹",
+              "2": "密码",
+              "3": "卡",
+              "4": "机械钥匙"
+            }
+          }
+        }
+      ],
+      "outputData": []
+    },
+    {
+      "identifier": "GetKeyList",
+      "name": "获取钥匙列表",
+      "required": true,
+      "callType": "async",
+      "method": "thing.service.GetKeyList",
+      "inputData": [
+        {
+          "identifier": "LockType",
+          "name": "开锁方式",
+          "dataType": {
+            "type": "enum",
+            "specs": {
+              "0": "全部",
+              "1": "指纹",
+              "2": "密码",
+              "3": "卡",
+              "4": "机械钥匙"
+            }
+          }
+        }
+      ],
+      "outputData": []
+    }
+  ]
+}

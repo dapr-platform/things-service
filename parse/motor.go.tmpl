@@ -1,0 +1,67 @@
+package parse
+
+import (
+	"github.com/spf13/cast"
+)
+
+// 读转换
+func TranslateProperty(data map[string]any) (value map[string]any) {
+	value = make(map[string]any)
+	for k, v := range data {
+		value[k] = v
+	}
+	_, ok := data["输出频率"]
+	if ok {
+		value["输出频率"] = cast.ToInt(data["输出频率"]) / 100
+	}
+	_, ok = data["设定频率"]
+	if ok {
+		value["设定频率"] = cast.ToInt(data["设定频率"]) / 100
+	}
+	_, ok = data["上限频率"]
+	if ok {
+		value["上限频率"] = cast.ToInt(data["上限频率"]) / 100
+	}
+
+	return
+}
+
+// 写转换
+func TranslatePropertySet(data map[string]any, propName string, val any) (value map[string]any) {
+	value = make(map[string]any)
+	switch propName {
+	case "输出频率":
+		value[propName] = cast.ToInt(val) * 100
+	case "设定频率":
+		value[propName] = cast.ToInt(val) * 100
+	case "上限频率":
+		value[propName] = cast.ToInt(val) * 100
+	default:
+		value[propName] = val
+	}
+
+	return
+}
+
+// 写转换desired
+func TranslatePropertySetDesired(data map[string]any, propName string, val any) (value map[string]any) {
+	value = make(map[string]any)
+	switch propName {
+	case "输出频率":
+		value[propName] = cast.ToInt(val) * 100
+	case "设定频率":
+		value[propName] = cast.ToInt(val) * 100
+	case "上限频率":
+		value[propName] = cast.ToInt(val) * 100
+	default:
+		value[propName] = val
+	}
+	return
+}
+
+func CheckAlert(data map[string]any) (alerts []map[string]any) {
+	alerts = make([]map[string]any, 0)
+
+	return
+
+}

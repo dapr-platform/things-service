@@ -1,0 +1,37 @@
+package parse
+
+import "github.com/spf13/cast"
+
+// 读转换
+func TranslateProperty(data map[string]any) (value map[string]any) {
+	value = make(map[string]any)
+	val := cast.ToIntSlice(data["总用水量"])
+	if len(val) == 2 {
+		value["总用水量"] = val[0]*256 + val[1]
+	} else {
+		value["总用水量"] = val
+	}
+
+	return
+}
+
+// 写转换
+func TranslatePropertySet(data map[string]any, propName string, val any) (value map[string]any) {
+	value = make(map[string]any)
+	value[propName] = val
+	return
+}
+
+// 写转换desired
+func TranslatePropertySetDesired(data map[string]any, propName string, val any) (value map[string]any) {
+	value = make(map[string]any)
+	value[propName] = val
+	return
+}
+
+func CheckAlert(data map[string]any) (alerts []map[string]any) {
+	alerts = make([]map[string]any, 0)
+
+	return
+
+}

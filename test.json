@@ -1,0 +1,237 @@
+{
+  "profile": {
+    "name": "新风机组",
+    "type": 1,
+    "descript": "",
+    "identifier": "5f99315ea1ca",
+    "categories": "",
+    "vendor": "珑琪科技",
+    "version": "1.0",
+    "model": "m1"
+  },
+  "deviceModels": [
+    {
+      "profile": {
+        "name": "默认模块",
+        "identifier": "defaultModule"
+      },
+      "properties": [
+        {
+          "name": "配电1-半自动状态",
+          "identifier": "HandAutoStatus1",
+          "desc": "",
+          "required": false,
+          "accessMode": "r",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "手动",
+              "1": "自动"
+            }
+          },
+          "ui": {
+            "0": {},
+            "1": {}
+          }
+        },
+        {
+          "name": "配电1-启停控制",
+          "identifier": "State1",
+          "desc": "",
+          "required": false,
+          "accessMode": "rw",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关",
+              "1": "开"
+            }
+          },
+          "ui": {
+            "0": {},
+            "1": {}
+          }
+        },
+        {
+          "name": "配电1-运行状态",
+          "identifier": "Status1",
+          "desc": "",
+          "required": false,
+          "accessMode": "r",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关",
+              "1": "开"
+            }
+          },
+          "ui": {
+            "0": {},
+            "1": {}
+          }
+        },
+        {
+          "name": "配电1-故障告警",
+          "identifier": "Alert1",
+          "desc": "",
+          "required": false,
+          "accessMode": "r",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "正常",
+              "1": "告警"
+            }
+          },
+          "ui": {
+            "0": {},
+            "1": {}
+          }
+        },
+        {
+          "name": "配电1-频率调节",
+          "identifier": "FrequencyState1",
+          "desc": "",
+          "required": false,
+          "accessMode": "rw",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": 0,
+              "max": 100,
+              "step": 1
+            }
+          },
+          "ui": {}
+        },
+        {
+          "name": "配电1-频率反馈",
+          "identifier": "Frequency1",
+          "desc": "",
+          "required": false,
+          "accessMode": "r",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": 0,
+              "max": 100,
+              "step": 1
+            }
+          },
+          "ui": {}
+        },
+        {
+          "name": "配电2-半自动状态",
+          "identifier": "HandAutoStatus2",
+          "desc": "",
+          "required": false,
+          "accessMode": "r",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "手动",
+              "1": "自动"
+            }
+          },
+          "ui": {
+            "0": {},
+            "1": {}
+          }
+        },
+        {
+          "name": "配电2-启停控制",
+          "identifier": "State2",
+          "desc": "",
+          "required": false,
+          "accessMode": "rw",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关",
+              "1": "开"
+            }
+          },
+          "ui": {
+            "0": {},
+            "1": {}
+          }
+        },
+        {
+          "name": "配电2-运行状态",
+          "identifier": "Status2",
+          "desc": "",
+          "required": false,
+          "accessMode": "r",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "关",
+              "1": "开"
+            }
+          },
+          "ui": {
+            "0": {},
+            "1": {}
+          }
+        },
+        {
+          "name": "配电2-故障告警",
+          "identifier": "Alert2",
+          "desc": "",
+          "required": false,
+          "accessMode": "r",
+          "dataType": {
+            "type": "bool",
+            "specs": {
+              "0": "正常",
+              "1": "告警"
+            }
+          },
+          "ui": {
+            "0": {},
+            "1": {}
+          }
+        },
+        {
+          "name": "配电2-频率调节",
+          "identifier": "FrequencyState2",
+          "desc": "",
+          "required": false,
+          "accessMode": "rw",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": 0,
+              "max": 100,
+              "step": 1
+            }
+          },
+          "ui": {}
+        },
+        {
+          "name": "配电2-频率反馈",
+          "identifier": "Frequency2",
+          "desc": "",
+          "required": false,
+          "accessMode": "r",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": 0,
+              "max": 100,
+              "step": 1
+            }
+          },
+          "ui": {}
+        }
+      ],
+      "events": [],
+      "services": []
+    }
+  ],
+  "parseScript": {
+    "language": "javascript",
+    "content": ""
+  },
+  "tags": []
+}

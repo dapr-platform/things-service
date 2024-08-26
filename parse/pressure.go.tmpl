@@ -1,0 +1,43 @@
+package parse
+
+import (
+	"fmt"
+	"github.com/spf13/cast"
+	"strconv"
+)
+
+// 读转换
+func TranslateProperty(data map[string]any) (value map[string]any) {
+	value = make(map[string]any)
+	val := cast.ToFloat32(data["压力"])
+	if val < 4000 {
+		val = 4000
+	}
+	min := float32(0)
+	max := float32(1)
+	val = min + cast.ToFloat32((val-4000))/float32(16000)*(max-min)
+	valN, _ := strconv.ParseFloat(fmt.Sprintf("%.2f", val), 64)
+	value["压力"] = valN
+	return
+}
+
+// 写转换
+func TranslatePropertySet(data map[string]any, propName string, val any) (value map[string]any) {
+	value = make(map[string]any)
+	value[propName] = val
+	return
+}
+
+// 写转换desired
+func TranslatePropertySetDesired(data map[string]any, propName string, val any) (value map[string]any) {
+	value = make(map[string]any)
+	value[propName] = val
+	return
+}
+
+func CheckAlert(data map[string]any) (alerts []map[string]any) {
+	alerts = make([]map[string]any, 0)
+
+	return
+
+}

@@ -1,0 +1,17 @@
+####ko build --local .
+
+defaultBaseImage: alpine:3.19
+
+defaultPlatforms:
+  - linux/arm64
+  - linux/amd64
+
+builds:
+  - id: things-service
+    dir: .
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -s -w
+      - -extldflags "-static"
+

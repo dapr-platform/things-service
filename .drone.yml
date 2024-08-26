@@ -1,0 +1,69 @@
+kind: pipeline
+type: docker
+name: things-service
+
+steps:
+  - name: build-service
+    image: docker:19.03.1
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+      - name: docker-daemon
+        path: /etc/docker/daemon.json
+
+    environment:
+      REGISTRY: registry.cn-hangzhou.aliyuncs.com
+      REGISTRY_USER: tbhlpst7s7ppc@aliyun.com
+      REGISTRY_PASSWORD: hitlyl78
+      DOCKERFILE: Dockerfile
+      IMAGE: lq-things/things-service
+      BUILDDIR: .
+      TAG: latest
+      DRONE_BUILD_CREATED: ${DRONE_BUILD_CREATED}
+    commands:
+      - docker login -u $REGISTRY_USER -p "$REGISTRY_PASSWORD" $REGISTRY
+      - cd $BUILDDIR &&echo $DRONE_BUILD_CREATED>build.time && docker build -f $DOCKERFILE -t $REGISTRY/$IMAGE:$TAG .
+      - docker push $REGISTRY/$IMAGE:$TAG && docker rmi $REGISTRY/$IMAGE:$TAG
+
+    when:
+      event:
+        - tag
+        - promote
+        - push
+#  - name: redeploy-service
+#    image: plugins/webhook
+#    depends_on:
+#      - build-things-service
+#    settings:
+#      username: token-9pndk
+#      skip_verify: true
+#      password: r4hlfjw9pj6k69sqlvl5wd75kdt6ttcll6gk9vhm8zvxb24rhszzhp
+#      urls:
+#        - "https://39.106.22.246:34548/v3/project/local:p-7nkhs/workloads/deployment:lq-things:things-service?action=redeploy"
+#
+#      debug: true
+#      template: |
+#        {
+#
+#        }
+#    when:
+#      event:
+#        - tag
+#        - promote
+#        - push
+
+
+volumes:
+  - name: docker
+    host:
+      path: /var/run/docker.sock
+  - name: docker-daemon
+    host:
+      path: /etc/docker/daemon.json
+
+
+trigger:
+  event:
+    - push
+    - tag
+    - promote
